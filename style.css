@@ -800,10 +800,12 @@ section {
 /* Projects Section - Zero Transitions, Pure Static */
 .projects {
     background: var(--bg-primary);
-    padding: 80px 0;
+    padding: 80px 0 100px 0;
     position: static;
     float: none;
     clear: both;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .projects-grid {
@@ -819,14 +821,16 @@ section {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 10px;
-    margin-bottom: 30px;
-    padding: 20px;
+    margin-bottom: 40px;
+    padding: 25px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: block;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     position: static;
     float: none;
+    overflow: hidden;
 }
 
 .project-image {
@@ -972,9 +976,24 @@ section {
     }
 }
 
+/* Section Separator */
+.projects::after {
+    content: '';
+    display: block;
+    height: 50px;
+    width: 100%;
+    clear: both;
+}
+
 /* Contact Section */
 .contact {
     background: var(--bg-secondary);
+    padding: 80px 0;
+    position: static;
+    float: none;
+    clear: both;
+    z-index: 2;
+    margin-top: 50px;
 }
 
 .contact-content {
