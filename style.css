@@ -797,10 +797,13 @@ section {
     font-size: 0.95rem;
 }
 
-/* Projects Section - Ultra Simple Direct Display */
+/* Projects Section - Zero Transitions, Pure Static */
 .projects {
     background: var(--bg-primary);
     padding: 80px 0;
+    position: static;
+    float: none;
+    clear: both;
 }
 
 .projects-grid {
@@ -808,6 +811,8 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: static;
+    float: none;
 }
 
 .project-card {
@@ -820,10 +825,8 @@ section {
     display: block;
     width: 100%;
     box-sizing: border-box;
-}
-
-.project-card:hover {
-    border-color: var(--primary);
+    position: static;
+    float: none;
 }
 
 .project-image {
@@ -833,6 +836,8 @@ section {
     border-radius: 8px;
     margin-bottom: 20px;
     display: block;
+    position: static;
+    float: none;
 }
 
 .project-image img {
@@ -841,10 +846,13 @@ section {
     object-fit: cover;
     border-radius: 8px;
     display: block;
+    position: static;
 }
 
 .project-content {
     display: block;
+    position: static;
+    float: none;
 }
 
 .project-status {
@@ -857,6 +865,7 @@ section {
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 15px;
+    position: static;
 }
 
 .project-content h3 {
@@ -865,6 +874,7 @@ section {
     color: var(--text-primary);
     margin-bottom: 15px;
     line-height: 1.3;
+    position: static;
 }
 
 .project-content p {
@@ -872,10 +882,12 @@ section {
     line-height: 1.6;
     margin-bottom: 20px;
     font-size: 16px;
+    position: static;
 }
 
 .project-tech {
     margin-bottom: 20px;
+    position: static;
 }
 
 .tech-tag {
@@ -889,10 +901,12 @@ section {
     display: inline-block;
     margin-right: 8px;
     margin-bottom: 8px;
+    position: static;
 }
 
 .project-links {
     display: block;
+    position: static;
 }
 
 .project-link {
@@ -906,11 +920,7 @@ section {
     font-size: 14px;
     margin-right: 10px;
     margin-bottom: 10px;
-}
-
-.project-link:hover {
-    background: var(--primary);
-    color: white;
+    position: static;
 }
 
 .project-link i {
