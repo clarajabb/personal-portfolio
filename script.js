@@ -1,31 +1,43 @@
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-const body = document.body;
-
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
-body.setAttribute('data-theme', currentTheme);
-
-// Update icon based on current theme
-if (currentTheme === 'dark') {
-    themeIcon.className = 'fas fa-sun';
-} else {
-    themeIcon.className = 'fas fa-moon';
-}
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+// Theme Toggle - Fixed and Enhanced
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
     
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
     
-    // Update icon
-    if (newTheme === 'dark') {
-        themeIcon.className = 'fas fa-sun';
-    } else {
-        themeIcon.className = 'fas fa-moon';
+    // Apply theme
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    updateThemeIcon(currentTheme);
+    
+    function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            themeIcon.className = 'fas fa-moon';
+        }
+    }
+    
+    // Theme toggle event listener
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+            
+            // Add a subtle animation
+            themeToggle.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1)';
+            }, 150);
+        });
     }
 });
 
